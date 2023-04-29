@@ -10,6 +10,17 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioPlayer();
     player.play(AssetSource('note$soundNumber.wav'));
   }
+  void press()
+  {
+    Expanded(
+      child: TextButton(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red),),
+                onPressed: () {
+                  playSound(1);
+                },                  
+              ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +28,7 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red),),
@@ -25,19 +36,11 @@ class XylophoneApp extends StatelessWidget {
                   playSound(1);
                 },                  
               ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
-              ),
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange),),
                 onPressed: () {
                   playSound(2);
                 },                  
-              ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
               ),
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.yellow)),
@@ -45,40 +48,26 @@ class XylophoneApp extends StatelessWidget {
                   playSound(3);
                 },                  
               ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
-              ),
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
                 onPressed: () {
                   playSound(4);
                 },                  
               ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
-              ),
-              TextButton(
+                TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.teal)),
                 onPressed: () {
                  playSound(5);
                 },                  
               ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
-              ),
+              
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
                 onPressed: () {
                   playSound(6);
                 },                  
               ),
-              SizedBox(
-                height: 10.0,
-                width: 10.0,
-              ),
+              
               TextButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.purple)),
                 onPressed: () {
