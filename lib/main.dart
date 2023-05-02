@@ -4,21 +4,22 @@ import 'package:audioplayers/audioplayers.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
-
-  void playSound(int soundNumber)
-  {
+  void playSound(int soundNumber) {
     final player = AudioPlayer();
     player.play(AssetSource('note$soundNumber.wav'));
   }
-  void press()
-  {
-    Expanded(
+
+  Expanded press({Color color, int soundNumber}) {
+    return Expanded(
       child: TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red),),
-                onPressed: () {
-                  playSound(1);
-                },                  
-              ),
+         style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(color),
+         ),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+        child: Text(''),
+      ),
     );
   }
 
@@ -30,50 +31,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red),),
-                onPressed: () {
-                  playSound(1);
-                },                  
-              ),
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange),),
-                onPressed: () {
-                  playSound(2);
-                },                  
-              ),
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.yellow)),
-                onPressed: () {
-                  playSound(3);
-                },                  
-              ),
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
-                onPressed: () {
-                  playSound(4);
-                },                  
-              ),
-                TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.teal)),
-                onPressed: () {
-                 playSound(5);
-                },                  
-              ),
-              
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
-                onPressed: () {
-                  playSound(6);
-                },                  
-              ),
-              
-              TextButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.purple)),
-                onPressed: () {
-                  playSound(7);
-                },                  
-              ),
+              press(color: Colors.red, soundNumber: 1),
+              press(color: Colors.orange, soundNumber: 2),
+              press(color: Colors.yellow, soundNumber: 3),
+              press(color: Colors.green, soundNumber: 4),
+              press(color: Colors.teal, soundNumber: 5),
+              press(color: Colors.blue, soundNumber: 6),
+              press(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
